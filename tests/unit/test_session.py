@@ -167,7 +167,7 @@ class TestSession(BaseTestCase):
 
         assert bc_session.user_agent_name == 'Custom'
         assert bc_session.user_agent_version == '1.0'
-        assert bc_session.user_agent_extra == ''
+        assert not bc_session.user_agent_extra
 
     def test_get_available_services(self):
         bc_session = self.bc_session_cls.return_value

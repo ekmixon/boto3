@@ -59,4 +59,4 @@ def test_all_collections(collection):
     # resources are successfully created.
     collection_list = list(collection.limit(1))
     assert len(collection_list) < 2
-    assert all([isinstance(res, ServiceResource) for res in collection_list])
+    assert all(isinstance(res, ServiceResource) for res in collection_list)

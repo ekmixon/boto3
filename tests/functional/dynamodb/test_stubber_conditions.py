@@ -33,13 +33,14 @@ class TestStubberSupportsFilterExpressions(unittest.TestCase):
         stubber = Stubber(table.meta.client)
         stubber.add_response(
             'query',
-            dict(Items=list()),
+            dict(Items=[]),
             expected_params=dict(
                 TableName='mytable',
                 KeyConditionExpression=key_expr,
-                FilterExpression=filter_expr
-            )
+                FilterExpression=filter_expr,
+            ),
         )
+
 
         with stubber:
             response = table.query(KeyConditionExpression=key_expr,
@@ -58,12 +59,12 @@ class TestStubberSupportsFilterExpressions(unittest.TestCase):
         stubber = Stubber(table.meta.client)
         stubber.add_response(
             'scan',
-            dict(Items=list()),
+            dict(Items=[]),
             expected_params=dict(
-                TableName='mytable',
-                FilterExpression=filter_expr
-            )
+                TableName='mytable', FilterExpression=filter_expr
+            ),
         )
+
 
         with stubber:
             response = table.scan(FilterExpression=filter_expr)

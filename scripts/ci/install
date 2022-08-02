@@ -32,4 +32,4 @@ if __name__ == "__main__":
             shutil.rmtree("dist")
         run("python setup.py bdist_wheel")
         wheel_dist = os.listdir("dist")[0]
-        run("pip install %s" % (os.path.join("dist", wheel_dist)))
+        run(f'pip install {os.path.join("dist", wheel_dist)}')

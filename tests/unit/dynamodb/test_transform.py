@@ -474,7 +474,7 @@ class TestTransformAttributeValueOutput(BaseTransformAttributeValueTest):
         parsed = {}
         self.injector.inject_attribute_value_output(
             parsed=parsed, model=operation_model)
-        assert parsed == {}
+        assert not parsed
 
 
 class TestTransformConditionExpression(BaseTransformationTest):
